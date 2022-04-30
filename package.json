@@ -1,0 +1,24 @@
+{
+  "name": "ml-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shramee/ml-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shramee/ml-playground/issues"
+  },
+  "homepage": "https://github.com/shramee/ml-playground#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
