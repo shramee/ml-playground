@@ -12,10 +12,18 @@ app.use( '/', ( req, res ) => {
 } );
 
 
-const httpsOptions = {
-	cert: fs.readFileSync( path.join( __dirname, 'ssl-cert', 'certificate.pem' ) ),
-	key: fs.readFileSync( path.join( __dirname, 'ssl-cert', 'key.pem' ) ),
-};
+try {
 
-https.createServer( httpsOptions, app )
-		 .listen( port, () => console.log( `Serving files on ${port} with https.` ) );
+	const httpsOptions = {
+		cert: fs.readFileSync( path.join( __dirname, 'ssl-cert', 'certificate.pem' ) ),
+		key : fs.readFileSync( path.join( __dirname, 'ssl-cert', 'key.pem' ) ),
+	};
+
+	https.createServer( httpsOptions, app )
+			 .listen( port, () => console.log( `Serving files on ${port} with https.` ) );
+
+} catch ( e ) {
+	console.error( e );
+	"ENOENT" === e.code && console.log( `Please run 'sh ssl.sh' to generate ssl licenses.` );
+}
+
