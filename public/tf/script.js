@@ -27,6 +27,29 @@ function tensors_and_variables() {
 	d3.mul( d4 ).print();
 }
 
+/**
+ * Simple model with one operation
+ */
+function models() {
+	// Simple model that adds 2 tensors
+	function simpleAdd( d1, d2 ) {
+		// Tidy to free up GPU memory when done
+		return tf.tidy( () => {
+			const x1 = d1;
+			const x2 = d2;
+			return x1.add( x2 );
+		} );
+	}
+
+	// Create some tensors
+	const t1 = tf.tensor( [1, 4, 3, 5, 11, 13], [3, 2] );
+	const t2 = tf.tensor( [2, 1, 9, 24, 2, 8], [3, 2] );
+
+	// Call the model
+	simpleAdd( t1, t2 ).print();
+}
+
 // Run here
 tensors_and_variables();
+models();
 
