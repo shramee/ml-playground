@@ -4,6 +4,11 @@
  * @requires tf https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js
  */
 
-function setup() {}
+function setup() {
+	createCanvas( window.innerWidth - 20, window.innerHeight - 20 );
+}
 
-function draw() {}
+function draw() {
+	background( 100 );
+	noLoop();
+}
